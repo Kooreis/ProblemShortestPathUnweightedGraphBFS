@@ -1,19 +1,15 @@
-class Queue {
-    constructor() {
-        this.items = [];
+class Graph {
+    constructor(noOfVertices) {
+        this.noOfVertices = noOfVertices;
+        this.AdjList = new Map();
     }
 
-    enqueue(element) {
-        this.items.push(element);
+    addVertex(v) {
+        this.AdjList.set(v, []);
     }
 
-    dequeue() {
-        if(this.isEmpty())
-            return "Underflow";
-        return this.items.shift();
-    }
-
-    isEmpty() {
-        return this.items.length == 0;
+    addEdge(v, w) {
+        this.AdjList.get(v).push(w);
+        this.AdjList.get(w).push(v);
     }
 }
